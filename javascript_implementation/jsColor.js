@@ -167,7 +167,7 @@
 			},
 			// this is a way to prevent data binding on HTMLElements
 			colorPickers = window.jsColorPicker.colorPickers || [],
-			elms = document.querySelectorAll(selectors),
+			elms = (selectors instanceof HTMLElement) ? [selectors] : (selectors instanceof Array || selectors instanceof NodeList) ? selectors : document.querySelectorAll(selectors),
 			testColors = new window.Colors({customBG: config.customBG, allMixDetails: true});
 
 		window.jsColorPicker.colorPickers = colorPickers;
